@@ -3,149 +3,195 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Your Cozy Experience | The Cozy Pawfee</title>
+  <title>Contact | The PawFee Shop</title>
   <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/booking-form.css">
 </head>
 <body>
   <header class="site-header">
     <!-- LOGO AREA -->
     <a class="logo-container" href="index.html">
-      <img src="images/logo.png" alt="The Pawfee Logo">
+      <img src="images/logo.png" alt="The PawFee Shop logo">
       <span class="brand-name">The PawFee Shop</span>
     </a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+    <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
     <nav id="main-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="Menu.html">Menu</a></li>
-        <li><a href="Contact.html">Contact</a></li>
-        <li><a href="booking.html" aria-current="page">Book Now</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="booking.html">Book Now</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="booking" id="booking" aria-labelledby="booking-title">
-    <aside class="booking-side">
-      <p class="script">Good coffee<br>Happy paws<br>Fun for everyone</p>
-      <img src="images/cafe-room.jpg" alt="Cozy pet room with cats and dogs relaxing">
-      <p class="tagline">Sip. Bite. Stay. Swag. &#128062;</p>
-    </aside>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="lead">Book now and visit our cafe</p>
+        <h1>Are you excited to relax and enjoy with your adorable pets?</h1>
+        <a class="story-btn" href="booking.html">Book your cozy experience</a>
+      </div>
+      <img class="hero-img" src="images/group%20of%20pets.jpeg" alt="Dogs and cats sitting together">
+    </section>
 
-    <section class="booking-form-wrap">
-      <h2 id="booking-title">Are you excited to meet your adorable friends?</h2>
-      <p class="green">Book your cozy experience</p>
+    <section class="info">
+      <div class="info-block">
+        <h2>Opening hours</h2>
+        <dl class="hours">
+          <dt>Monday to Friday</dt><dd>7:00 AM to 9:00 PM</dd>
+          <dt>Saturday toSunday</dt><dd>8:00 AM to10:00 PM</dd>
+        </dl>
+      </div>
 
-      <form id="booking-form" novalidate>
+      <div class="info-block">
+        <h2>Contact us</h2>
+        <p>Phone: <a href="tel:0991234567">099-123-4567</a></p>
+        <p>Email: <a href="mailto:hello@thecozypawfee.com">hello@thecozypawfee.com</a></p>
+      </div>
+
+      <div class="info-block">
+        <h2>Follow us</h2>
+        <ul class="social">
+          <li><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M14 8V6.5c0-.7.3-1 1.1-1H17V2h-2.6C11.4 2 10 3.7 10 6.2V8H7.5v3.5H10V22h4V11.5h2.8L17.3 8z"/></svg></a></li>
+          <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <div class="booking-visual">
+        <p class="booking-script">Coffee, Brew &amp; Paws<br>for everyone</p>
+        <img src="images/group%20of%20pets.jpeg" alt="Cozy play area with cats and a dog relaxing on rugs">
+        <p class="booking-tagline">Sip. Bite. Stay. Swag. &#128062;</p>
+      </div>
+
+      <form class="booking-form" id="booking-form" action="#" method="post">
         <div class="field">
-          <label for="name">Full name</label>
-          <input id="name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required>
+          <label for="full-name">Full Name</label>
+          <div class="field-row"><span class="icon" aria-hidden="true">&#128100;</span>
+            <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required></div>
         </div>
+
         <div class="field">
-          <label for="email">Email address</label>
-          <input id="email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
+          <label for="email">Email Address</label>
+          <div class="field-row"><span class="icon" aria-hidden="true">&#9993;&#65039;</span>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required></div>
         </div>
+
         <div class="field">
-          <label for="phone">Phone number</label>
-          <input id="phone" name="phone" type="tel" placeholder="09XX XXX XXXX" pattern="[0-9 +\-]{10,15}" autocomplete="tel" required>
+          <label for="phone">Phone Number</label>
+          <div class="field-row"><span class="icon" aria-hidden="true">&#128222;</span>
+            <input type="tel" id="phone" name="phone" placeholder="09XX XXX XXXX" pattern="[0-9 +\-]{10,15}" required></div>
         </div>
+
         <div class="field">
-          <label for="type">Reservation type</label>
-          <select id="type" name="type" required>
-            <option value="">Select an option</option>
-            <option>Cafe table</option>
-            <option>Pet play session</option>
-            <option>Birthday / event</option>
-          </select>
+          <label for="reservation-type">Reservation Type</label>
+          <div class="field-row"><span class="icon" aria-hidden="true">&#128203;</span>
+            <select id="reservation-type" name="reservation-type" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Table for dining</option>
+              <option>Pet play session</option>
+              <option>Birthday / private event</option>
+            </select></div>
         </div>
+
         <div class="field">
-          <label for="guests">Number of guests</label>
-          <select id="guests" name="guests" required>
-            <option value="">Select number</option>
-            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
-          </select>
+          <label for="guests">Number of Guests</label>
+          <div class="field-row"><span class="icon" aria-hidden="true">&#128101;</span>
+            <select id="guests" name="guests" required>
+              <option value="" disabled selected>Select number</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8+</option>
+            </select></div>
         </div>
+
         <div class="field">
           <label for="date">Date</label>
-          <input id="date" name="date" type="date" required>
+          <div class="field-row"><span class="icon" aria-hidden="true">&#128197;</span>
+            <input type="date" id="date" name="date" required></div>
         </div>
+
         <div class="field">
           <label for="time">Time</label>
-          <input id="time" name="time" type="time" required>
+          <div class="field-row"><span class="icon" aria-hidden="true">&#128339;</span>
+            <input type="time" id="time" name="time" min="07:00" max="22:00" required></div>
         </div>
+
         <div class="field">
-          <label for="pet">Pet companion</label>
-          <select id="pet" name="pet" required>
-            <option value="">Choose your companion</option>
-            <option>Dogs</option><option>Cats</option><option>Rabbits</option><option>No preference</option>
-          </select>
+          <label for="companion">Pet Companion</label>
+          <div class="field-row"><span class="icon" aria-hidden="true">&#128062;</span>
+            <select id="companion" name="companion" required>
+              <option value="" disabled selected>Choose your companion</option>
+              <option>Dog</option>
+              <option>Cat</option>
+              <option>No preference</option>
+            </select></div>
         </div>
-        <div class="field wide">
-          <label for="session">Session type</label>
-          <select id="session" name="session">
-            <option value="">Type of pet session you are booking</option>
-            <option>Cuddle time</option>
-            <option>Play time</option>
-            <option>Photo session</option>
-          </select>
+
+        <div class="field field-wide">
+          <label for="session">Session Type</label>
+          <div class="field-row"><span class="icon" aria-hidden="true">&#127969;</span>
+            <select id="session" name="session" required>
+              <option value="" disabled selected>Type of pet session you are booking</option>
+              <option>30 minutes</option>
+              <option>1 hour</option>
+              <option>2 hours</option>
+            </select></div>
         </div>
-        <div class="field wide">
-          <label for="notes" class="sr-only">Special request or note</label>
+
+        <div class="field field-wide">
+          <label class="visually-hidden" for="notes">Special request or note</label>
           <textarea id="notes" name="notes" rows="3" placeholder="Let us know if you have any special request or note"></textarea>
         </div>
 
-        <p id="form-message" class="message" role="status" aria-live="polite" hidden></p>
+        <p class="booking-confirm" id="booking-confirm" role="status" aria-live="polite" hidden></p>
 
-        <div class="actions wide">
+        <div class="booking-actions">
           <button type="submit" class="story-btn">Confirm booking</button>
           <button type="reset" class="story-btn">Reset</button>
         </div>
       </form>
     </section>
-  </section>
   </main>
 
   <footer class="site-footer">
     <p>Sip. Bite. Stay. Swag. &#128062;</p>
-    <p>&copy; 2026 The Cozy Pawfee</p>
+    <p>&copy; 2026 The PawFee Shop</p>
   </footer>
+
   <script>
-  // Burger menu
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('main-nav');
-  function setMenu(open) {
-    nav.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open);
-    toggle.innerHTML = open ? '&times;' : '&#9776;';
-  }
-  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
-  nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
-  window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
-
-  // Booking form
-  const form = document.getElementById('booking-form');
-  const msg = document.getElementById('form-message');
-  const date = document.getElementById('date');
-  date.min = new Date().toISOString().split('T')[0]; // no past dates
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    msg.classList.remove('error');
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      msg.textContent = 'Please complete all required fields.';
-      msg.classList.add('error');
-      msg.hidden = false;
-      return;
+    // Burger menu
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+    function setMenu(open) {
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+      toggle.innerHTML = open ? '&times;' : '&#9776;';
     }
-    const d = new FormData(form);
-    msg.textContent = `Thank you, ${d.get('name')}! Your booking request for ${d.get('date')} at ${d.get('time')} has been received. We'll contact you to confirm.`;
-    msg.hidden = false;
-    form.reset();
-  });
-  form.addEventListener('reset', () => { msg.hidden = true; });
-</script>
+    toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
+
+    // Booking form: show a confirmation message instead of sending
+    const form = document.getElementById('booking-form');
+    const confirmBox = document.getElementById('booking-confirm');
+    const dateInput = document.getElementById('date');
+    dateInput.min = new Date().toISOString().split('T')[0];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = form.elements['full-name'].value.trim();
+      const date = form.elements['date'].value;
+      const time = form.elements['time'].value;
+      confirmBox.textContent = 'Thank you, ' + name + '! Your booking request for ' + date +
+        ' at ' + time + ' has been received. We\'ll contact you to confirm.';
+      confirmBox.hidden = false;
+      confirmBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    form.addEventListener('reset', () => { confirmBox.hidden = true; });
+  </script>
 </body>
 </html>

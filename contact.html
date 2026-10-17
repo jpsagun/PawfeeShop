@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | The Cozy Pawfee</title>
+  <title>Contact | The PawFee Shop</title>
   <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
   <header class="site-header">
     <!-- LOGO AREA -->
     <a class="logo-container" href="index.html">
-      <img src="images/logo.png" alt="The Pawfee Logo">
+      <img src="images/logo.png" alt="The PawFee Shop logo">
       <span class="brand-name">The PawFee Shop</span>
     </a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+    <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
     <nav id="main-nav">
       <ul>
-                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="Menu.html">Menu</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="booking.html">Book Now?</a></li>>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="Menu.html">Menu</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="booking.html">Book Now</a></li>
       </ul>
     </nav>
   </header>
@@ -37,24 +37,24 @@
 
     <section class="info">
       <div class="info-block">
-        <h2>Visit time hours</h2>
+        <h2>Opening hours</h2>
         <dl class="hours">
-          <dt>Monday – Friday</dt><dd>7:00 AM – 9:00 PM</dd>
-          <dt>Saturday – Sunday</dt><dd>8:00 AM – 10:00 PM</dd>
+          <dt>Monday to Friday</dt><dd>7:00 AM to 9:00 PM</dd>
+          <dt>Saturday to Sunday</dt><dd>8:00 AM to 10:00 PM</dd>
         </dl>
       </div>
 
       <div class="info-block">
         <h2>Contact us</h2>
-        <p>Phone: <a href="tel:0991234567">099-123-456</a></p>
+        <p>Phone: <a href="tel:0991234567">099-123-4567</a></p>
         <p>Email: <a href="mailto:hello@thecozypawfee.com">hello@thecozypawfee.com</a></p>
       </div>
 
       <div class="info-block">
         <h2>Follow us</h2>
         <ul class="social">
-          <li><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M14 8V6.5c0-.7.3-1 1.1-1H17V2h-2.6C11.4 2 10 3.700 10 6.200V8H7.500v3.500H10V22h4V11.500h2.800L17.300 8z"/></svg></a></li>
-          <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.500" cy="6.500" r="1" fill="currentColor"/></svg></a></li>
+          <li><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M14 8V6.5c0-.7.3-1 1.1-1H17V2h-2.6C11.4 2 10 3.7 10 6.2V8H7.5v3.5H10V22h4V11.5h2.8L17.3 8z"/></svg></a></li>
+          <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></li>
         </ul>
       </div>
     </section>
@@ -62,22 +62,22 @@
 
   <footer class="site-footer">
     <p>Sip. Bite. Stay. Swag. &#128062;</p>
-    <p>&copy; 2026 The Cozy Pawfee</p>
+    <p>&copy; 2026 The PawFee Shop</p>
   </footer>
-  <script>
-  // Burger menu
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('main-nav');
-  function setMenu(open) {
-    nav.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open);
-    toggle.innerHTML = open ? '&times;' : '&#9776;';
-  }
-  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
-  nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
-  window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
 
-</script>
+  <script>
+    // Burger menu
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+    function setMenu(open) {
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+      toggle.innerHTML = open ? '&times;' : '&#9776;';
+    }
+    toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
+  </script>
 </body>
 </html>

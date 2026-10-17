@@ -1,0 +1,90 @@
+/* Booking form (add after styles.css) */
+.booking {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 2.5rem;
+  align-items: start;
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.booking-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+.booking-script {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+}
+.booking-tagline {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 1rem 0 0;
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem 1.5rem;
+}
+.field { display: flex; flex-direction: column; gap: .3rem; }
+.field-wide, .booking-confirm, .booking-actions { grid-column: 1 / -1; }
+
+.field label { font-weight: 700; font-size: .9rem; }
+.field-row { display: flex; align-items: center; gap: .6rem; }
+.field-row .icon { font-size: 1.3rem; width: 1.6rem; text-align: center; }
+.field-row input, .field-row select { flex: 1; min-width: 0; }
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  font: inherit;
+  color: #331e03;
+  background: #fff;
+  border: 1px solid #a0522d;
+  border-radius: 8px;
+  padding: .6rem .8rem;
+}
+.booking-form textarea { width: 100%; resize: vertical; box-sizing: border-box; }
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: 2px solid #a0522d;
+  outline-offset: 1px;
+}
+
+.booking-confirm {
+  margin: 0;
+  padding: 1rem 1.2rem;
+  background: #e6f4ea;
+  border: 2px solid #1f6b3a;
+  border-radius: 10px;
+  color: #1f5a2b;
+  font-family: ui-monospace, "Lilex", monospace;
+  font-weight: 700;
+}
+.booking-confirm[hidden] { display: none; }
+
+.booking-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.booking-actions .story-btn {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (max-width: 800px) {
+  .booking { grid-template-columns: 1fr; }
+  .booking-form { grid-template-columns: 1fr; }
+}
