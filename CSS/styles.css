@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
 
 /* =========================================================
@@ -40,6 +39,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 16px;
 }
 
 body {
@@ -1365,6 +1365,11 @@ footer p {
 
     .menu-section > h2 {
         font-size: 24px;
+    }
+
+    /* keep section headings clear of the sticky category tabs */
+    .menu-section {
+        scroll-margin-top: 110px;
     }
 
     .menu-grid {

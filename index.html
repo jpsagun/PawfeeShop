@@ -11,18 +11,21 @@
 <body>
     <header>
         <!-- LOGO AREA -->
-        
-            <div class="logo-container">
-                <img src="images/logo.png" alt="The Pawfee Logo">
-                <h1>The PawFee Shop</h1>
-            </div>
-        <nav>
+        <a class="logo-container" href="index.html">
+            <img src="images/logo.png" alt="The Pawfee Logo">
+            <span class="brand-name">The PawFee Shop</span>
+        </a>
+
+        <!-- BURGER BUTTON (tablet + mobile) -->
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+
+        <nav id="main-nav" aria-label="Main">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" aria-current="page">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="Menu.html">Menu</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="booking.html">Book Now?</a></li>
+                <li><a href="booking.html">Book Now</a></li>
             </ul>
         </nav>
     </header>
@@ -33,13 +36,13 @@
             <h1>Coffee Brewed with love, Shared with Paws.</h1>
             <h2>A Cozy Modern cafe where coffee lovers can relax, enjoy and spend time with adorable pets.</h2>
 
-            <a href="menu.html">Order Now</a>
-            <a href="contact.html">Reserve Now?</a>
+            <a href="Menu.html">Order Now</a>
+            <a href="booking.html">Reserve Now</a>
         </section>
 
         <section id="Promotional">
             <img src="images/Coffee-shop.png" alt="The Coffee shop">
-            <h1>Brewing Happiness, One Paw at One Time.</h1>
+            <h2>Brewing Happiness, One Paw at One Time.</h2>
             <p>From rich in freshly natural brewed coffee, to sweet sips and delicious treats servings. every cup at Pawfee is made with natural and hands-on care.
                Whether your enjoying your favorite latte. discovering a new signature drink or indulging in freshly baked pastries, there's something for everyone to enjoy,
                At Pawfee, we believe, we believe that great coffee taste better with a few playable furry friends by your side or you can rent per hour to walk with your side. Come sip, relax, and make paw-some memories with us! </p>
@@ -47,7 +50,7 @@
 
         <section id="Meet-Pawfee">
             <img src="images/group of pets.jpeg" alt="The Group of Pets">
-            <h1>Meet Our Furry Group Pets</h1>
+            <h2>Meet Our Furry Group Pets</h2>
             <p>Welcome to Our Adorable Furry Pet Section at The Cozy PawFee! Here at our cafe, every cup of artistic design coffe is best enjoyed in the company of
                 our adorable, friendly residents pets. Whether you are looking for companion, or you want to spend a cozy afternoon sharing gentle snuggles with our 
                 loving trained furry members, our pets are here to brighten your day. Come meet our lovable crew, share some joyful playtime, and experience
@@ -57,6 +60,24 @@
     </main>
 
     <footer>
+        <p>&copy; 2026 The PawFee Shop. All rights reserved | Created by Joana Paula Sagun.</p>
     </footer>
+
+    <script>
+        // Burger menu (tablet + mobile, 1024px and below)
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('main-nav');
+
+        function setMenu(open) {
+            nav.classList.toggle('open', open);
+            toggle.setAttribute('aria-expanded', open);
+            toggle.innerHTML = open ? '&times;' : '&#9776;';
+        }
+
+        toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+        nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+        window.addEventListener('resize', () => { if (window.innerWidth > 1024) setMenu(false); });
+    </script>
 </body>
 </html>

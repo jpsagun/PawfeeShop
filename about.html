@@ -14,18 +14,21 @@
 
     <!-- HEADER -->
     <header>
-        <div class="logo-container">
+        <a class="logo-container" href="index.html">
             <img src="images/logo.png" alt="The PawFee Shop Logo">
-            <h1>The PawFee Shop</h1>
-        </div>
+            <span class="brand-name">The PawFee Shop</span>
+        </a>
 
-        <nav>
+        <!-- BURGER BUTTON (tablet + mobile) -->
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+
+        <nav id="main-nav" aria-label="Main">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html" aria-current="page">About</a></li>
                 <li><a href="Menu.html">Menu</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="booking.html">Book Now?</a></li>
+                <li><a href="booking.html">Book Now</a></li>
             </ul>
         </nav>
     </header>
@@ -64,7 +67,7 @@
                     sanctuary built with love, caffeine, and paws.
                 </p>
 
-                <a href="contact.html" class="story-btn">BOOK NOW</a>
+                <a href="booking.html" class="story-btn">BOOK NOW</a>
             </div>
 
             <div class="story-image">
@@ -107,8 +110,8 @@
             out at <strong>The PawFee Shop</strong>.
         </p>
 
-        <div class="btn">
-            <a href="contact.html" class="story-btn">BOOK YOUR VISIT</a>
+        <div class="closing-button">
+            <a href="booking.html" class="story-btn">BOOK YOUR VISIT</a>
         </div>
 
         <!-- DRINKS: 3 cards in one row -->
@@ -128,10 +131,10 @@
                         treats with your favorite furry friends.
                     </dd>
                 </dl>
-                <p class="drink-footer">
+                <div class="drink-footer">
                     <span class="price">&#8369;150</span>
-                    <a class="drink-more" href="Menu.html">View menu &rarr;</a>
-                </p>
+                    <a class="drink-more" href="Menu.html#drinks">View menu &rarr;</a>
+                </div>
             </article>
 
             <article id="Classic-coffee">
@@ -145,11 +148,11 @@
                         those who love warm comfort.
                     </dd>
                 </dl>
-                <p class="drink-footer">
+                <div class="drink-footer">
                     <span class="price">&#8369;120</span>
-                    <a class="drink-more" href="Menu.html">View menu &rarr;</a>
-                </p>
-            </article> <!-- this closing tag was missing -->
+                    <a class="drink-more" href="Menu.html#drinks">View menu &rarr;</a>
+                </div>
+            </article>
 
             <article id="Matcha">
                 <img src="images/matcha.png" alt="The matcha">
@@ -162,10 +165,10 @@
                         delicate balance of sweetness.
                     </dd>
                 </dl>
-                <p class="drink-footer">
+                <div class="drink-footer">
                     <span class="price">&#8369;165</span>
-                    <a class="drink-more" href="Menu.html">View menu &rarr;</a>
-                </p>
+                    <a class="drink-more" href="Menu.html#drinks">View menu &rarr;</a>
+                </div>
             </article>
 
         </section>
@@ -175,6 +178,23 @@
     <footer>
         <p>&copy; 2026 The PawFee Shop. All rights reserved | Created by Joana Paula Sagun.</p>
     </footer>
+
+    <script>
+        // Burger menu (tablet + mobile, 1024px and below)
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('main-nav');
+
+        function setMenu(open) {
+            nav.classList.toggle('open', open);
+            toggle.setAttribute('aria-expanded', open);
+            toggle.innerHTML = open ? '&times;' : '&#9776;';
+        }
+
+        toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+        nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+        window.addEventListener('resize', () => { if (window.innerWidth > 1024) setMenu(false); });
+    </script>
 
 </body>
 </html>
