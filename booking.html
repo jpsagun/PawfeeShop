@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Cozy Experience | The Cozy Pawfee</title>
+  <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <!-- LOGO AREA -->
+    <a class="logo-container" href="index.html">
+      <img src="images/logo.png" alt="The Pawfee Logo">
+      <span class="brand-name">The PawFee Shop</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="Menu.html">Menu</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="booking.html" aria-current="page">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="booking" id="booking" aria-labelledby="booking-title">
+    <aside class="booking-side">
+      <p class="script">Good coffee<br>Happy paws<br>Fun for everyone</p>
+      <img src="images/cafe-room.jpg" alt="Cozy pet room with cats and dogs relaxing">
+      <p class="tagline">Sip. Bite. Stay. Swag. &#128062;</p>
+    </aside>
+
+    <section class="booking-form-wrap">
+      <h2 id="booking-title">Are you excited to meet your adorable friends?</h2>
+      <p class="green">Book your cozy experience</p>
+
+      <form id="booking-form" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" placeholder="09XX XXX XXXX" pattern="[0-9 +\-]{10,15}" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <label for="type">Reservation type</label>
+          <select id="type" name="type" required>
+            <option value="">Select an option</option>
+            <option>Cafe table</option>
+            <option>Pet play session</option>
+            <option>Birthday / event</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="guests">Number of guests</label>
+          <select id="guests" name="guests" required>
+            <option value="">Select number</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date" required>
+        </div>
+        <div class="field">
+          <label for="time">Time</label>
+          <input id="time" name="time" type="time" required>
+        </div>
+        <div class="field">
+          <label for="pet">Pet companion</label>
+          <select id="pet" name="pet" required>
+            <option value="">Choose your companion</option>
+            <option>Dogs</option><option>Cats</option><option>Rabbits</option><option>No preference</option>
+          </select>
+        </div>
+        <div class="field wide">
+          <label for="session">Session type</label>
+          <select id="session" name="session">
+            <option value="">Type of pet session you are booking</option>
+            <option>Cuddle time</option>
+            <option>Play time</option>
+            <option>Photo session</option>
+          </select>
+        </div>
+        <div class="field wide">
+          <label for="notes" class="sr-only">Special request or note</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Let us know if you have any special request or note"></textarea>
+        </div>
+
+        <p id="form-message" class="message" role="status" aria-live="polite" hidden></p>
+
+        <div class="actions wide">
+          <button type="submit" class="story-btn">Confirm booking</button>
+          <button type="reset" class="story-btn">Reset</button>
+        </div>
+      </form>
+    </section>
+  </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Sip. Bite. Stay. Swag. &#128062;</p>
+    <p>&copy; 2026 The Cozy Pawfee</p>
+  </footer>
+  <script>
+  // Burger menu
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('main-nav');
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.innerHTML = open ? '&times;' : '&#9776;';
+  }
+  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
+
+  // Booking form
+  const form = document.getElementById('booking-form');
+  const msg = document.getElementById('form-message');
+  const date = document.getElementById('date');
+  date.min = new Date().toISOString().split('T')[0]; // no past dates
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    msg.classList.remove('error');
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      msg.textContent = 'Please complete all required fields.';
+      msg.classList.add('error');
+      msg.hidden = false;
+      return;
+    }
+    const d = new FormData(form);
+    msg.textContent = `Thank you, ${d.get('name')}! Your booking request for ${d.get('date')} at ${d.get('time')} has been received. We'll contact you to confirm.`;
+    msg.hidden = false;
+    form.reset();
+  });
+  form.addEventListener('reset', () => { msg.hidden = true; });
+</script>
+</body>
+</html>
